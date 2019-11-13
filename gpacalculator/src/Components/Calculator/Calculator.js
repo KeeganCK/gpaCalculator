@@ -15,7 +15,7 @@ const calculator = props => {
 			<p className="line"><button className="button2" value={3} onClick={props.click}>C+</button></p>
 			<p className="line"><button className="button2" value={2} onClick={props.click}>C</button></p>
 			<p className="line"><button className="button2" value={1} onClick={props.click}>D</button></p>
-			<p className="line"><button className="button2" value={0} onClick={props.click}>F</button></p>
+			<p className="lineEnd"><button className="button2" value={0} onClick={props.click}>F</button></p>
 		</div>
 	)
 }

@@ -22,3 +22,8 @@
 .line {
 	margin: 0px;
 }
+
+.lineEnd {
+	margin: 0px;
+	margin-bottom: 25px;
+}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import Calculator from './Components/Calculator/Calculator';
 import Credit from './Components/Credit/Credit';
+import Table from './Components/Table/Table';
+
 
 const App = () => {
 
@@ -10,7 +12,8 @@ const App = () => {
         gradeArray: [],
         creditArray: [],
         gpaValue: 0,
-        actualGPA: 0
+        actualGPA: 0,
+        totalCredit:0
     })
 
     const calculator = () => {
@@ -27,7 +30,8 @@ const App = () => {
                     gradeArray: gradeState.gradeArray,
                     creditArray: gradeState.creditArray,
                     gpaValue: 0,
-                    actualGPA: gradeState.actualGPA
+                    actualGPA: gradeState.actualGPA,
+                    totalCredit: gradeState.totalCredit
                 });
             }
             let total = 0;
@@ -39,12 +43,14 @@ const App = () => {
                 credits = credits + credit[i];
             }
             gradeState.actualGPA = total/credits;
+            gradeState.totalCredit = credits;
             setGrade({
                 totalGPA: gradeState.totalGPA,
                 gradeArray: gradeState.gradeArray,
                 creditArray: gradeState.creditArray,
                 gpaValue: 0,
-                actualGPA: gradeState.actualGPA
+                actualGPA: gradeState.actualGPA,
+                totalCredit: gradeState.totalCredit
             });
         }
         else{
@@ -65,7 +71,8 @@ const App = () => {
                 gradeArray: gradeState.gradeArray,
                 creditArray: gradeState.creditArray,
                 gpaValue: gradeState.gpaValue,
-                actualGPA: gradeState.actualGPA
+                actualGPA: gradeState.actualGPA,
+                totalCredit: gradeState.totalCredit
             });
         }
 
@@ -84,7 +91,8 @@ const App = () => {
                 gradeArray: gradeState.gradeArray,
                 creditArray: gradeState.creditArray,
                 gpaValue: gradeState.gpaValue,
-                actualGPA: gradeState.actualGPA
+                actualGPA: gradeState.actualGPA,
+                totalCredit: gradeState.totalCredit
             });
         }
 
@@ -100,20 +108,78 @@ const App = () => {
         });
     }
 
+    let grade = gradeState.gradeArray;
+    let countAP = 0;
+    let countA = 0;
+    let countAM = 0;
+    let countBP = 0;
+    let countB = 0;
+    let countBM = 0;
+    let countCP = 0;
+    let countC = 0;
+    let countD = 0;
+    let countF = 0;
+    for(let i = 0; i < grade.length; i++){
+        if(grade[i] === 9){
+            countAP++;
+        }
+        else if(grade[i] === 8){
+            countA++;
+        }
+        else if(grade[i] === 7){
+            countAM++;
+        }
+        else if(grade[i] === 6){
+            countBP++;
+        }
+        else if(grade[i] === 5){
+            countB++;
+        }
+        else if(grade[i] === 4){
+            countBM++;
+        }
+        else if(grade[i] === 3){
+            countCP++;
+        }
+        else if(grade[i] === 2){
+            countC++;
+        }
+        else if(grade[i] === 1){
+            countD++;
+        }
+        else if(grade[i] === 0){
+            countF++;
+        }
+    }
+
     return (
         <div className="App">
             <h1>GPA Calculator</h1>
-            <p>Number of classes: {gradeState.gradeArray.length}</p>
-            <p>Number of Credits: {gradeState.creditArray.length}</p>
             <p><button className="button1" onClick={clear}>Clear all Lists</button></p>
             <p><button className="button1" onClick={calculator}>Calculate</button></p>
-            <p>GPA: {gradeState.actualGPA}</p>
+            <p>GPA: {gradeState.actualGPA.toFixed(2)}</p>
             <div className="rowC">
             <Calculator
                 click={addGrade}
             />
             <Credit
                 clickCred={addCredit}
+            />
+            <Table
+                amountAP={countAP}
+                amountA={countA}
+                amountAM={countAM}
+                amountBP={countBP}
+                amountB={countB}
+                amountBM={countBM}
+                amountCP={countCP}
+                amountC={countC}
+                amountD={countD}
+                amountF={countF}
+                classes={gradeState.gradeArray.length}
+                credit={gradeState.creditArray.length}
+                credits={gradeState.totalCredit}
+                list={gradeState.gradeArray.toString()}
             />
             </div>
         </div>

@@ -59,7 +59,7 @@ const table = props => {
 					<td class="td1">Total of Credits</td>
 					<td class="td2">{props.credits}</td>
 				</tr>
-				<tr>
+				<tr className="marginBottom">
 					<td class="td11">Grades entered</td>
 					<td class="td22">{props.list} </td>
 				</tr>

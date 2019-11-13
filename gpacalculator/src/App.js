@@ -27,7 +27,7 @@ const App = () => {
                     gradeArray: gradeState.gradeArray,
                     creditArray: gradeState.creditArray,
                     gpaValue: 0,
-                    actualGPA: 0
+                    actualGPA: gradeState.actualGPA
                 });
             }
             let total = 0;
@@ -39,7 +39,13 @@ const App = () => {
                 credits = credits + credit[i];
             }
             gradeState.actualGPA = total/credits;
-            console.log("GPA: ", gradeState.actualGPA);
+            setGrade({
+                totalGPA: gradeState.totalGPA,
+                gradeArray: gradeState.gradeArray,
+                creditArray: gradeState.creditArray,
+                gpaValue: 0,
+                actualGPA: gradeState.actualGPA
+            });
         }
         else{
             alert("Number of classes is not equal to the number of credits selected")

@@ -7,7 +7,39 @@ body {
   color: white;
 }
 
+.zeroM {
+    margin: 0px;
+}
+
+.marg {
+    margin-bottom: 0px;
+}
+
+.gpa {
+    border: 1px solid #DB4437;
+    color: #DB4437;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.button3 {
+    margin: 0px;
+    padding: 2%;
+    color: white;
+    border: 1px solid white;
+    background-color: #DB4437;
+    width: 50%;
+}
+
+.button3:hover {
+    background-color: #222222;
+    border: 1px solid #DB4437;
+    color: #DB4437;
+    cursor: pointer;
+}
+
 .rowC {
+    margin-top: 0px;
     display: flex;
     flex-direction: row;
 }

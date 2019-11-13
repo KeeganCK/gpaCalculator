@@ -155,9 +155,11 @@ const App = () => {
     return (
         <div className="App">
             <h1>GPA Calculator</h1>
-            <p><button className="button1" onClick={clear}>Clear all Lists</button></p>
-            <p><button className="button1" onClick={calculator}>Calculate</button></p>
-            <p>GPA: {gradeState.actualGPA.toFixed(2)}</p>
+            <p>This will calculate your GPA. You need to select a grade first, then select the amount of credits its worth.
+             Do this for every class you have taken. After entering in all grades and corresponding credits, click "Calculate" and see your GPA just below. This GPA calculator is for UVIC only.</p>
+            <p className="zeroM"><button className="button3" onClick={clear}>Clear all Lists</button></p>
+            <p className="zeroM"><button className="button3" onClick={calculator}>Calculate</button></p>
+            <p className="marg">GPA: <span className="gpa">{gradeState.actualGPA.toFixed(2)}</span></p>
             <div className="rowC">
             <Calculator
                 click={addGrade}

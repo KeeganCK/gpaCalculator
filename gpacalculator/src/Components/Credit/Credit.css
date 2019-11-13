@@ -1,0 +1,23 @@
+.main {
+	width: 50%;
+
+}
+
+.button1 {
+	padding: 2%;
+	width: 80%;
+	color: white;
+	background-color: #DB4437;
+	border: 1px solid white;
+	text-align: center;
+}
+
+.button1:hover {
+	background-color: #222222;
+	color: #DB4437;
+	border: 1px solid #DB4437;
+}
+
+.line {
+	margin: 0px;
+}

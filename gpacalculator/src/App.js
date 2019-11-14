@@ -53,8 +53,11 @@ const App = () => {
                 totalCredit: gradeState.totalCredit
             });
         }
+        else if(grade.length === 0 && credit.length === 0){
+            alert("Nothing Selected");
+        }
         else{
-            alert("Number of classes is not equal to the number of credits selected")
+            alert("Number of classes is not equal to the number of credits selected");
         }
     }
 
@@ -157,8 +160,10 @@ const App = () => {
             <h1>GPA Calculator</h1>
             <p>This will calculate your GPA. You need to select a grade first, then select the amount of credits its worth.
              Do this for every class you have taken. After entering in all grades and corresponding credits, click "Calculate" and see your GPA just below. This GPA calculator is for UVIC only.</p>
-            <p className="zeroM"><button className="button3" onClick={clear}>Clear all Lists</button></p>
-            <p className="zeroM"><button className="button3" onClick={calculator}>Calculate</button></p>
+            <p className="zeroM">
+                <button className="button3" onClick={calculator}>Calculate</button>
+                <button className="button3" onClick={clear}>Clear all Lists</button>
+            </p>
             <p className="marg">GPA: <span className="gpa">{gradeState.actualGPA.toFixed(2)}</span></p>
             <div className="rowC">
             <Calculator
